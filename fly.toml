@@ -1,0 +1,21 @@
+app = "selenex-bot"
+kill_signal = "SIGINT"
+kill_timeout = 5
+
+[build]
+  builder = "heroku/buildpacks:20"
+
+[env]
+  PORT = "8080"
+
+[[services]]
+  internal_port = 8080
+  protocol = "tcp"
+  auto_start = true
+  auto_stop = true
+
+  [[services.ports]]
+    port = 80
+
+  [[services.ports]]
+    port = 443
